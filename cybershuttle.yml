@@ -1,0 +1,38 @@
+project:
+  name: Run a full simulation of the point-neuron V1 network with thalamacortical (LGN) and background (BKG) inputs.
+  version: 1.0.0
+  description: This repository contains notebooks and configurations to run a full simulation of the point-neuron V1 network with thalamacortical (LGN) and background (BKG) inputs.
+  tags:
+    - neuroscience
+    - visual_cortex
+    - v1
+    - lgn
+  homepage: https://github.com/cyber-shuttle/allen-v1
+
+workspace:
+  location: /workspace
+  resources:
+    min_cpu: 4
+    min_gpu: 0
+    min_mem: 0
+    gpu_mem: 1024
+    gpu_class: ["H100", "A100", "Generic"]
+  model_collection:
+    - source: cybershuttle
+      identifier: allenai-v1
+      mount_point: /cybershuttle_data/allenai-v1
+  data_collection: []
+
+additional_dependencies:
+  conda:
+    - python=3.10
+    - pip
+    - ipywidgets
+    - numpy
+    - pandas
+    - seaborn
+    - matplotlib
+    - nest-simulator
+    - kaeldai::bmtk
+  pip:
+    - sonata
